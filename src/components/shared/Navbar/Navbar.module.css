@@ -87,4 +87,7 @@
         margin: auto 1rem;
         font-size: 14px;
     }
+    .menu_bar{
+        display: block;
+    }
 }

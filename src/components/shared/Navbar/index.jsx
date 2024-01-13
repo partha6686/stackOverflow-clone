@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import StackLogo from "../../../assets/logo.svg";
 import { Link } from "react-router-dom";
@@ -6,6 +6,8 @@ import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import SideBar from "../SideBar";
 
 const Navbar = () => {
+  const [showSideBar, setShowSideBar] = useState(true);
+  console.log(showSideBar);
   return (
     <>
       <section className={styles.navbar_wrapper}>
@@ -28,10 +30,10 @@ const Navbar = () => {
             <Link to="/">Product</Link>
             <Link to="/">For teams</Link>
           </div>
-          <AiOutlineMenu className={styles.menu_bar} size={20} />
+          <AiOutlineMenu className={styles.menu_bar} size={20} onClick={()=>setShowSideBar(!showSideBar)} />
         </div>
       </section>
-      <SideBar />
+      <SideBar showSideBar={showSideBar} />
     </>
   );
 };

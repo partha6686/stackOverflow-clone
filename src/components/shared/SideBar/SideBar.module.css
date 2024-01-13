@@ -1,4 +1,4 @@
-.sidebar_wrapper{
+.hide_sidebar,.sidebar_wrapper{
     padding: 4rem 0 4rem 4rem;
     width: fit-content;
     height: 100vh;
@@ -6,6 +6,7 @@
 }
 .sidebar{
     width: 16vw;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem
@@ -48,4 +49,12 @@
 .icon_right{
     margin-left: auto;
     margin-right: 6px;
+}
+@media screen and (max-width: 768px) {
+    .sidebar_wrapper{
+        padding: 2rem 0 2rem 1rem;
+    }
+    .hide_sidebar{
+        display: none;
+    }
 }

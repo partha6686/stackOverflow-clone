@@ -10,12 +10,12 @@ import {
 import { HiOutlineBriefcase } from "react-icons/hi2";
 import { useLocation, Link } from "react-router-dom";
 
-const SideBar = () => {
+const SideBar = ({showSideBar}) => {
   let location = useLocation();
   const [open, setOpen] = useState(true);
   console.log("location", location.pathname);
   return (
-    <div className={styles.sidebar_wrapper}>
+    <div className={!showSideBar ? styles.sidebar_wrapper: styles.hide_sidebar}>
       <div className={styles.sidebar}>
         <Link to="/" className={location.pathname == "/" ? styles.active_item : styles.sidebar_item}>
           <AiOutlineHome size={20} />
@@ -28,13 +28,13 @@ const SideBar = () => {
         </div>
         {open && (
           <div className={styles.sidebar_internal}>
-            <Link to="/questions" className={location.pathname == "/questions" && styles.active_item}>
+            <Link to="/questions" className={location.pathname == "/questions" ? styles.active_item: null}>
               <p>Questions</p>
             </Link>
-            <Link to="/tags" className={location.pathname == "/tags" && styles.active_item}>
+            <Link to="/tags" className={location.pathname == "/tags" ? styles.active_item: null}>
               <p>Tags</p>
             </Link>
-            <Link to="/users" className={location.pathname == "/users" && styles.active_item}>
+            <Link to="/users" className={location.pathname == "/users" ? styles.active_item: null}>
               <p>Users</p>
             </Link>
           </div>
