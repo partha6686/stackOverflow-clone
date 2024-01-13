@@ -1,0 +1,17 @@
+.card{
+    margin: 1rem 2rem;
+}
+.card h3{
+    font-weight: 400;
+    color: #F48024;
+}
+.card_footer{
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    gap: 12px;
+}
+.profile_pic{
+    border-radius: 100%;
+    width: 2rem;
+}

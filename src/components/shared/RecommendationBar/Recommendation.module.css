@@ -7,10 +7,13 @@
 .upVotes{
     padding:10px 12px;
     background-color: #eaeaea;
+    font-size: 14px;
 }
 .upVotesSelected{
     padding:10px 12px;
     background-color: #F48024;
+    color: #fff;
+    font-size: 14px;
 }
 .title{
     flex-grow: 1;

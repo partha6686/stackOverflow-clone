@@ -1,16 +1,17 @@
-import React from 'react'
-import styles from './Section.module.css'
+import React from "react";
+import styles from "./Section.module.css";
+import QuestionSmCard from "../../Questions/QuestionSmCard";
 
 const Section = () => {
   return (
     <div>
-      <div>
-      <h2>ALl Questions</h2>
-      <button>Ask Question</button>
+      <div className={styles.header}>
+        <h2>All Questions</h2>
+        <button>Ask Question</button>
       </div>
-      
+      <QuestionSmCard />
     </div>
-  )
-}
+  );
+};
 
-export default Section
+export default Section;

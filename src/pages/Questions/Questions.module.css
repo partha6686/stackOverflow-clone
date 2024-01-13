@@ -10,7 +10,7 @@
     flex-grow: 1;
 }
 .rec_wrapper{
-    width: 350px;
+    min-width: 350px;
     padding: 2rem 4rem 0 0;
 }
 

@@ -1,4 +1,19 @@
-.section_wrapper{
-    flex-grow: 1;
-    /* flex: 2; */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid gray;
+    margin: 0 2rem;
+}
+.header h2{
+    font-weight: 400;
+    /* font-size: 2rem; */
+}
+.header button{
+    background-color: #F48024;
+    border: 0;
+    color: #fff;
+    padding: 8px 12px; 
+    border-radius: 6px;
 }
