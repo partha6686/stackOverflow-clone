@@ -1,12 +1,12 @@
 .hide_sidebar,.sidebar_wrapper{
+    min-width: 280px;
     padding: 4rem 0 4rem 4rem;
     width: fit-content;
     height: 100vh;
     position: fixed;
+    background-color: #fff;
 }
 .sidebar{
-    width: 16vw;
-    min-width: 200px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem

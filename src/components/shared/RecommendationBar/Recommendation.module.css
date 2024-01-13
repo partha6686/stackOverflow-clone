@@ -1,0 +1,22 @@
+.card{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.upVotes{
+    padding:10px 12px;
+    background-color: #eaeaea;
+}
+.upVotesSelected{
+    padding:10px 12px;
+    background-color: #F48024;
+}
+.title{
+    flex-grow: 1;
+    font-size: 12px;
+}
+.heading{
+    font-weight: 400;
+    margin: 2rem 0;
+}

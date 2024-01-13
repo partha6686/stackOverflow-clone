@@ -1,0 +1,24 @@
+.questions_wrapper{
+    min-height: 100vh;
+    margin-left: auto;
+    width: calc(100vw - 280px);
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+}
+.section_wrapper{
+    flex-grow: 1;
+}
+.rec_wrapper{
+    width: 350px;
+    padding: 2rem 4rem 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .questions_wrapper{
+        width: 100vw;
+    }
+    .rec_wrapper{
+        display: none;
+    }
+}
