@@ -1,0 +1,14 @@
+.bubble_tag{
+    padding: 6px 12px;
+    background-color: #ffb980;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.bubble_tag_sm{
+    font-size: 10px;
+    padding: 4px 6px;
+    background-color: #eaeaea;
+    border-radius: 6px;
+    color: #848484;
+}

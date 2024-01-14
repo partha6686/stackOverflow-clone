@@ -28,7 +28,7 @@ const SideBar = ({showSideBar}) => {
         </div>
         {open && (
           <div className={styles.sidebar_internal}>
-            <Link to="/questions" className={location.pathname == "/questions" ? styles.active_item: null}>
+            <Link to="/questions" className={location.pathname.includes("/questions") ? styles.active_item: null}>
               <p>Questions</p>
             </Link>
             <Link to="/tags" className={location.pathname == "/tags" ? styles.active_item: null}>

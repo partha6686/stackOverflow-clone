@@ -1,0 +1,78 @@
+.card {
+  margin: 2rem;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
+  -moz-box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
+  box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
+}
+.card_header {
+  background-color: #f48024;
+  color: #fff;
+}
+.card_title_div {
+  padding: 2rem;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  align-items: start;
+  gap: 4rem;
+}
+
+.card_title {
+  font-weight: 600;
+  color: #fff;
+  font-size: 18px;
+}
+
+.card_profile {
+  display: flex;
+  padding: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.profile_name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-wrap: nowrap;
+  font-size: 14px;
+}
+.profile_pic {
+  border-radius: 100%;
+  width: 28px;
+}
+
+.profile_desc {
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  color: #fff;
+}
+.VR {
+  border-right: 1px solid #fff;
+}
+.card_body {
+  padding: 2rem;
+  font-size: 14px;
+  color: #242729;
+}
+.card_footer{
+    padding: 0 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer_left{
+    color: #f48024;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.footer_right{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

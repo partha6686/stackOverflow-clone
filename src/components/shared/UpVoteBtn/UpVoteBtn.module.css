@@ -1,0 +1,17 @@
+.btn{
+    background-color: #F48024;
+    /* padding: 6px 12px; */
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff;
+    width: fit-content;
+    border-radius: 8px;
+}
+.btn_left,.btn_right{
+    padding: 6px 6px 2px;
+}
+.btn_text{
+    padding: 6px 12px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}

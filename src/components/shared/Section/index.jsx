@@ -10,6 +10,15 @@ const Section = () => {
         <button>Ask Question</button>
       </div>
       <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
+      <QuestionSmCard />
     </div>
   );
 };
