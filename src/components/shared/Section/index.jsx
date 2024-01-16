@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Section.module.css";
 import QuestionSmCard from "../../Questions/QuestionSmCard";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { getData } from "../../../services";
+import Loader from "../../../assets/loader.svg";
 
 const Section = () => {
   let [searchParams, setSearchParams] = useSearchParams();
+  const { search } = useLocation();
   const [allQuestions, setAllQuestions] = useState([]);
   const [page, setPage] = useState(1);
   const [pagesize, setPagesize] = useState(15);
-  const [sortBy, setSortBy] = useState("creation");
   const [error, setError] = useState({ message: "", type: false });
   const [loading, setLoading] = useState(true);
 
+  const handleSortBy = async (val) => {
+    searchParams.set("sort", val);
+    setSearchParams(searchParams);
+  };
+
   const getQuestions = async () => {
     try {
+      console.log("HITTTT");
       setLoading(true);
       const data = await getData(
-        `questions?page=${page}&pagesize=${pagesize}&order=desc&sort=${sortBy}&site=stackoverflow&filter=withbody`
+        `questions?page=${page}&pagesize=${pagesize}&order=desc&sort=${
+          searchParams.get("sort") ? searchParams.get("sort") : "activity"
+        }&site=stackoverflow&filter=withbody`
       );
       if (data?.statusCode == 200) {
         setAllQuestions(data?.items);
@@ -41,7 +50,7 @@ const Section = () => {
       setPage(1);
       setPagesize(15);
     };
-  }, [page, pagesize]);
+  }, [page, pagesize, search]);
 
   return (
     <div>
@@ -55,17 +64,49 @@ const Section = () => {
             <p>20 Questions</p>
           </div>
           <div className={styles.filter_tab}>
-            <Link to={"/"} className={styles.filter_active_link}>
+            <p
+              onClick={() => handleSortBy("votes")}
+              className={
+                searchParams.get("sort") == "votes" && styles.filter_active_link
+              }
+            >
               Votes
-            </Link>
-            <Link to={"/"}>Oldest</Link>
-            <Link to={"/"}>Active</Link>
+            </p>
+            <p
+              onClick={() => handleSortBy("creation")}
+              className={
+                searchParams.get("sort") == "creation" &&
+                styles.filter_active_link
+              }
+            >
+              Newest
+            </p>
+            <p
+              onClick={() => handleSortBy("activity")}
+              className={
+                (searchParams.get("sort") == "activity" ||
+                  !searchParams.get("sort")) &&
+                styles.filter_active_link
+              }
+            >
+              Active
+            </p>
           </div>
         </div>
       </div>
-      {allQuestions.map((item, idx) => (
-        <QuestionSmCard />
-      ))}
+      {loading && (
+        <div className={styles.loader}>
+          <img
+            src={Loader}
+            alt="stack-overflow-logo"
+            
+          />
+        </div>
+      )}
+      {!loading &&
+        allQuestions.map((item, idx) => (
+          <QuestionSmCard key={item.question_id} question={item} />
+        ))}
     </div>
   );
 };

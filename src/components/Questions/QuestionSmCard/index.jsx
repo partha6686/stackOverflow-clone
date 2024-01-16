@@ -2,34 +2,50 @@ import React from "react";
 import styles from "./QuestionSmCard.module.css";
 import BubbleTag from "../../shared/BubbleTag";
 import { Link } from "react-router-dom";
+import { numberService } from "../../../services/numberService";
+import moment from "moment";
+import parse from 'html-react-parser';
 
-const QuestionSmCard = () => {
+const QuestionSmCard = ({ question }) => {
   return (
     <div className={styles.card}>
-      <Link to={'/questions/778734'} className={styles.card_title}>subscripted value is neither array nor pointer nor vector (C).</Link>
-      <p className={styles.card_desc}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa maxime
-        voluptatum quod sequi? Minus, perferendis similique! Deserunt, quo
-        reprehenderit soluta animi...
-      </p>
+      <Link
+        to={`/questions/${question.question_id}`}
+        className={styles.card_title}
+      >
+        {question.title}
+      </Link>
+      <p className={styles.card_desc}>{parse(question.body)}</p>
       <div className={styles.card_tags}>
-        <BubbleTag text={'React.js'} size='sm' />
-        <BubbleTag text={'Next.js'} size='sm' />
-        <BubbleTag text={'Node.js'} size='sm' />
-        <BubbleTag text={'Express JS'} size='sm' />
-        <BubbleTag text={'MongoDB'} size='sm' />
-        <BubbleTag text={'+3 more'} size='sm' />
+        {question.tags.map((item, idx) =>
+          idx < 3 ? <BubbleTag key={idx} text={item} size="sm" /> : null
+        )}
+        {question.tags.length > 3 && (
+          <BubbleTag text={`+${question.tags.length - 3} more`} size="sm" />
+        )}
       </div>
       <div className={styles.card_footer}>
-        <div className={styles.footer_name}>       
-            <img className={styles.profile_pic} src="https://www.gravatar.com/avatar/784a570374d05695178c2617b3f1b550?s=256&d=identicon&r=PG" alt="profile-pic" />
-            <p>Partha Sarathi</p>
-            <BubbleTag text={'230'} size="lg"  />
+        <div className={styles.footer_name}>
+          <img
+            className={styles.profile_pic}
+            src={question.owner.profile_image}
+            alt="profile-pic"
+          />
+          <p>{question.owner.display_name}</p>
+          <BubbleTag
+            text={numberService(question.owner.reputation)}
+            size="lg"
+          />
         </div>
         <div className={styles.footer_desc}>
-            <p>Asked 2 years, 1 month ago</p>
-            <p>Active 20 days ago</p>
-            <p>Viewed 200k times</p>
+          <p>
+            Asked {moment(question?.creation_date).startOf("seconds").fromNow()}{" "}
+          </p>
+          <p>
+            Active{" "}
+            {moment(question?.last_activity_date).startOf("seconds").fromNow()}
+          </p>
+          <p>Viewed {numberService(question.view_count)} times</p>
         </div>
       </div>
     </div>

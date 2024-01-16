@@ -12,8 +12,22 @@
 .card_desc{
     font-size: 14px;
     margin: 6px auto;
-    
+    text-wrap: wrap;
+    line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
 }
+.card_desc *{
+    display: none;
+}
+.card_desc p{
+    display: block;
+    width: 100%!important;
+    white-space: normal; 
+}
+
 .card_tags{
     display: flex;
     flex-wrap: wrap;

@@ -4,6 +4,8 @@
     color: #fff;
     border-radius: 8px;
     font-size: 14px;
+    min-width: 56px;
+    text-align: center;
 }
 .bubble_tag_sm{
     font-size: 10px;
