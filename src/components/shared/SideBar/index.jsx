@@ -13,7 +13,6 @@ import { useLocation, Link } from "react-router-dom";
 const SideBar = ({showSideBar}) => {
   let location = useLocation();
   const [open, setOpen] = useState(true);
-  console.log("location", location.pathname);
   return (
     <div className={!showSideBar ? styles.sidebar_wrapper: styles.hide_sidebar}>
       <div className={styles.sidebar}>

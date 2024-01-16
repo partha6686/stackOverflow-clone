@@ -7,7 +7,6 @@ import SideBar from "../SideBar";
 
 const Navbar = () => {
   const [showSideBar, setShowSideBar] = useState(true);
-  console.log(showSideBar);
   return (
     <>
       <section className={styles.navbar_wrapper}>

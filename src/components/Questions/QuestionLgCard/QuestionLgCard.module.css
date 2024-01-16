@@ -1,5 +1,4 @@
 .card {
-  margin: 2rem;
   overflow: hidden;
   border-radius: 8px;
   background-color: #fff;
@@ -49,6 +48,7 @@
   gap: 12px;
   font-size: 10px;
   color: #fff;
+  text-align: center;
 }
 .VR {
   border-right: 1px solid #fff;

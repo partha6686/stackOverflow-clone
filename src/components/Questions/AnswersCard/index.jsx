@@ -23,24 +23,6 @@ const AnswersCard = () => {
           </div>
           <UpVoteBtn num={102} />
         </div>
-        {/* <div className={styles.card_profile}>
-          <div className={styles.profile_name}>
-            <img
-              className={styles.profile_pic}
-              src="https://www.gravatar.com/avatar/784a570374d05695178c2617b3f1b550?s=256&d=identicon&r=PG"
-              alt="profile-pic"
-            />
-            <p>Partha Sarathi</p>
-            <BubbleTag text={"230"} size="lg" />
-          </div>
-          <div className={styles.profile_desc}>
-            <p>Asked 2 years, 1 month ago</p>
-            <div className={styles.VR} />
-            <p>Active 20 days ago</p>
-            <div className={styles.VR} />
-            <p>Viewed 200k times</p>
-          </div>
-        </div> */}
       </div>
       <div className={styles.card_body}>
         <div dangerouslySetInnerHTML={{ __html: body }} />

@@ -1,10 +1,14 @@
+.header_wrapper{
+    border-bottom: 1px solid gray;
+    margin: 0 2rem;
+    padding: 4rem 0 0.5rem;
+}
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 0 2rem;
-    border-bottom: 1px solid gray;
-    margin: 0 2rem;
+    margin-bottom: 1rem;
+    
 }
 .header h2{
     font-weight: 400;
@@ -16,4 +20,27 @@
     color: #fff;
     padding: 8px 12px; 
     border-radius: 6px;
+}
+
+.filter_div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.filter_num{
+    font-size: 18px;
+    color: #242729;
+}
+.filter_tab{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.filter_tab a{
+    text-decoration: none;
+    color: #242729;
+    font-size: 14px;
+}
+.filter_active_link{
+    color: #f48024!important;
 }

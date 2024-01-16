@@ -13,13 +13,22 @@
 .rec_wrapper{
     max-width: 450px;
     min-width: 380px;
-    width: 24vw;
+    width: 34vw;
     padding: 2rem 4rem 0 0;
 }
 
 @media screen and (max-width: 768px) {
     .questions_wrapper{
         width: 100vw;
+    }
+    .rec_wrapper{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1324px) {
+    .section_wrapper{
+        width: 100%;
     }
     .rec_wrapper{
         display: none;

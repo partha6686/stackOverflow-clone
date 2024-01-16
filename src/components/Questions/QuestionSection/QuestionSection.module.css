@@ -1,0 +1,28 @@
+.qs_section{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.filter_div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.filter_num{
+    font-size: 18px;
+    color: #242729;
+}
+.filter_tab{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.filter_tab a{
+    text-decoration: none;
+    color: #242729;
+    font-size: 14px;
+}
+.filter_active_link{
+    color: #f48024!important;
+}
