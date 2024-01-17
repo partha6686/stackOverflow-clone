@@ -10,17 +10,17 @@ const QuestionSmCard = ({ question }) => {
   return (
     <div className={styles.card}>
       <Link
-        to={`/questions/${question.question_id}`}
+        to={`/questions/${question?.question_id}`}
         className={styles.card_title}
       >
-        {question.title}
+        {question?.title}
       </Link>
-      <p className={styles.card_desc}>{parse(question.body)}</p>
+      <div className={styles.card_desc}>{parse(question?.body?question?.body: '')}</div>
       <div className={styles.card_tags}>
-        {question.tags.map((item, idx) =>
+        {question?.tags?.map((item, idx) =>
           idx < 3 ? <BubbleTag key={idx} text={item} size="sm" /> : null
         )}
-        {question.tags.length > 3 && (
+        {question?.tags?.length > 3 && (
           <BubbleTag text={`+${question.tags.length - 3} more`} size="sm" />
         )}
       </div>
@@ -28,12 +28,12 @@ const QuestionSmCard = ({ question }) => {
         <div className={styles.footer_name}>
           <img
             className={styles.profile_pic}
-            src={question.owner.profile_image}
+            src={question?.owner?.profile_image}
             alt="profile-pic"
           />
-          <p>{question.owner.display_name}</p>
+          <p>{question?.owner?.display_name}</p>
           <BubbleTag
-            text={numberService(question.owner.reputation)}
+            text={numberService(question?.owner?.reputation)}
             size="lg"
           />
         </div>
@@ -45,7 +45,7 @@ const QuestionSmCard = ({ question }) => {
             Active{" "}
             {moment(question?.last_activity_date).startOf("seconds").fromNow()}
           </p>
-          <p>Viewed {numberService(question.view_count)} times</p>
+          <p>Viewed {numberService(question?.view_count)} times</p>
         </div>
       </div>
     </div>

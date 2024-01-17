@@ -4,19 +4,27 @@ import QuestionSmCard from "../../Questions/QuestionSmCard";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { getData } from "../../../services";
 import Loader from "../../../assets/loader.svg";
+import ReactPaginate from "react-paginate";
+import { numberService } from "../../../services/numberService";
 
 const Section = () => {
   let [searchParams, setSearchParams] = useSearchParams();
   const { search } = useLocation();
   const [allQuestions, setAllQuestions] = useState([]);
-  const [page, setPage] = useState(1);
   const [pagesize, setPagesize] = useState(15);
+  const [page, setPage] = useState(1);
   const [error, setError] = useState({ message: "", type: false });
   const [loading, setLoading] = useState(true);
+  const [pageCount, setPageCount] = useState(5);
+  const [totQs, setTotQs] = useState(0);
 
   const handleSortBy = async (val) => {
     searchParams.set("sort", val);
     setSearchParams(searchParams);
+  };
+
+  const handlePageClick = async (e) => {
+    setPage(e.selected + 1);
   };
 
   const getQuestions = async () => {
@@ -42,70 +50,139 @@ const Section = () => {
     }
   };
 
+  const getSearchResults = async () => {
+    try {
+      setLoading(true);
+      const data = await getData(
+        `search/advanced?order=desc&sort=relevance&q=${searchParams.get(
+          "search"
+        )}&site=stackoverflow&filter=withbody`
+      );
+      if (data?.statusCode == 200) {
+        setAllQuestions(data?.items);
+      } else {
+        setError({
+          message: data?.error_message,
+          type: true,
+        });
+      }
+    } catch (error) {
+      setError({ message: "Some error occured", type: true });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getInfo = async () => {
+    try {
+      const data = await getData(`info?site=stackoverflow`);
+      if (data?.statusCode == 200) {
+        setTotQs(data?.items[0]?.total_questions);
+        setPageCount(Math.ceil(data?.items[0]?.total_questions / pageCount));
+      } else {
+        setError({
+          message: data?.error_message,
+          type: true,
+        });
+      }
+    } catch (error) {
+      setError({ message: "Some error occured", type: true });
+    }
+  };
+
   useEffect(() => {
-    getQuestions();
+    getInfo();
+  }, []);
+
+  useEffect(() => {
+    if (searchParams.get("search")) {
+      getSearchResults();
+    } else {
+      getQuestions();
+    }
     return () => {
       setAllQuestions([]);
-      setPage(1);
-      setPagesize(15);
     };
-  }, [page, pagesize, search]);
+  }, [page, search]);
 
   return (
     <div>
-      <div className={styles.header_wrapper}>
-        <div className={styles.header}>
-          <h2>All Questions</h2>
-          <button>Ask Question</button>
-        </div>
-        <div className={styles.filter_div}>
-          <div className={styles.filter_num}>
-            <p>20 Questions</p>
+      {!searchParams.get("search") && (
+        <div className={styles.header_wrapper}>
+          <div className={styles.header}>
+            <h2>All Questions</h2>
+            <button>Ask Question</button>
           </div>
-          <div className={styles.filter_tab}>
-            <p
-              onClick={() => handleSortBy("votes")}
-              className={
-                searchParams.get("sort") == "votes" && styles.filter_active_link
-              }
-            >
-              Votes
-            </p>
-            <p
-              onClick={() => handleSortBy("creation")}
-              className={
-                searchParams.get("sort") == "creation" &&
-                styles.filter_active_link
-              }
-            >
-              Newest
-            </p>
-            <p
-              onClick={() => handleSortBy("activity")}
-              className={
-                (searchParams.get("sort") == "activity" ||
-                  !searchParams.get("sort")) &&
-                styles.filter_active_link
-              }
-            >
-              Active
-            </p>
+          <div className={styles.filter_div}>
+            <div className={styles.filter_num}>
+              <p>{numberService(totQs, 0)} Questions</p>
+            </div>
+            <div className={styles.filter_tab}>
+              <p
+                onClick={() => handleSortBy("votes")}
+                className={
+                  searchParams.get("sort") == "votes"
+                    ? styles.filter_active_link
+                    : null
+                }
+              >
+                Votes
+              </p>
+              <p
+                onClick={() => handleSortBy("creation")}
+                className={
+                  searchParams.get("sort") == "creation"
+                    ? styles.filter_active_link
+                    : null
+                }
+              >
+                Newest
+              </p>
+              <p
+                onClick={() => handleSortBy("activity")}
+                className={
+                  searchParams.get("sort") == "activity" ||
+                  !searchParams.get("sort")
+                    ? styles.filter_active_link
+                    : null
+                }
+              >
+                Active
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       {loading && (
         <div className={styles.loader}>
-          <img
-            src={Loader}
-            alt="loading..."
-            
-          />
+          <img src={Loader} alt="loading..." />
         </div>
       )}
       {!loading &&
         allQuestions.map((item, idx) => (
           <QuestionSmCard key={item.question_id} question={item} />
         ))}
+      {!searchParams.get("search") && (
+        <ReactPaginate
+          previousLabel="Previous"
+          nextLabel="Next"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          containerClassName={!loading ? "pagination": "pagination-hidden"}
+          activeClassName="active"
+          breakLabel="..."
+          pageCount={pageCount}
+          marginPagesDisplayed={0}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+        />
+      )}
     </div>
   );
 };

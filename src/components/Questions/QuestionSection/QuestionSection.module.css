@@ -18,8 +18,8 @@
     align-items: center;
     gap: 1rem;
 }
-.filter_tab a{
-    text-decoration: none;
+.filter_tab p{
+    cursor: pointer;
     color: #242729;
     font-size: 14px;
 }

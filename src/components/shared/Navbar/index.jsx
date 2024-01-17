@@ -4,9 +4,18 @@ import StackLogo from "../../../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import SideBar from "../SideBar";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [showSideBar, setShowSideBar] = useState(true);
+  const [searchVal, setSearchVal] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e)=>{
+    e.preventDefault();
+    navigate(`/questions?search=${searchVal}`);
+  }
+
   return (
     <>
       <section className={styles.navbar_wrapper}>
@@ -16,20 +25,27 @@ const Navbar = () => {
           </div>
           <div className={styles.search_wrapper}>
             <AiOutlineSearch className={styles.search_icon} size={20} />
-            <input
-              className={styles.search_input}
-              placeholder="Search"
-              type="text"
-              name=""
-              id=""
-            />
+            <form onSubmit={handleSearch}>
+              <input
+                className={styles.search_input}
+                placeholder="Search"
+                type="text"
+                name="search"
+                value={searchVal}
+                onChange={(e) => setSearchVal(e.target.value)}
+              />
+            </form>
           </div>
           <div className={styles.menu}>
             <Link to="/">About</Link>
             <Link to="/">Product</Link>
             <Link to="/">For teams</Link>
           </div>
-          <AiOutlineMenu className={styles.menu_bar} size={20} onClick={()=>setShowSideBar(!showSideBar)} />
+          <AiOutlineMenu
+            className={styles.menu_bar}
+            size={20}
+            onClick={() => setShowSideBar(!showSideBar)}
+          />
         </div>
       </section>
       <SideBar showSideBar={showSideBar} />

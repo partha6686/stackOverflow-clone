@@ -28,6 +28,9 @@
     background-color: #f1f4f6;
     border-radius: 8px;
 }
+.search_wrapper form{
+    width: 100%;
+}
 .search_icon{
     width: 48px;
 }

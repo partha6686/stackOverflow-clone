@@ -19,15 +19,38 @@ const QuestionSection = () => {
   const [answers, setAnswers] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState({ message: "", type: false });
+  const [ansLoading, setAnsLoading] = useState(false);
 
   const handleSortBy = async (val) => {
     searchParams.set("sort", val);
     setSearchParams(searchParams);
   };
 
+  const handleFilter = async () => {
+    try {
+      setAnsLoading(true);
+      const answersData = await getData(
+        `questions/${slug}/answers?order=desc&sort=${
+          searchParams.get("sort") ? searchParams.get("sort") : "activity"
+        }&site=stackoverflow&filter=withbody`
+      );
+      if (answersData?.statusCode == 200) {
+        setAnswers(answersData.items);
+      } else {
+        setError({
+          message: answersData?.error_message,
+          type: true,
+        });
+      }
+    } catch (error) {
+      setError({ message: "Some error occured", type: true });
+    } finally {
+      setAnsLoading(false);
+    }
+  };
+
   const getQuestionAnswers = async () => {
     try {
-      console.log("HITTTT");
       setLoading(true);
       const questionData = await getData(
         `questions/${slug}?site=stackoverflow&filter=withbody`
@@ -47,16 +70,24 @@ const QuestionSection = () => {
         });
       }
     } catch (error) {
-      console.log("HIT", error);
       setError({ message: "Some error occured", type: true });
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    search && handleFilter();
+    return () => {
+      setAnswers([]);
+    };
+  }, [search]);
+
   useEffect(() => {
     getQuestionAnswers();
     return () => {
       setQuestion({});
+      setAnswers([]);
     };
   }, []);
 
@@ -105,6 +136,11 @@ const QuestionSection = () => {
               </p>
             </div>
           </div>
+          {ansLoading && (
+            <div className={styles.loader}>
+              <img src={Loader} alt="loading..." />
+            </div>
+          )}
           <div>
             {answers?.map((item) => (
               <AnswersCard key={item.answer_id} answer={item} />

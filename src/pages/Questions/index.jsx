@@ -10,7 +10,7 @@ const Questions = () => {
         <Section />
       </div>
       <div className={styles.rec_wrapper}>
-        <RecommendationBar />
+        {/* <RecommendationBar /> */}
       </div>
     </div>
   );
