@@ -1,6 +1,7 @@
 .questions_wrapper{
+    max-width: 1400px;
     min-height: 100vh;
-    margin-left: auto;
+    margin-left: 280px;
     width: calc(100vw - 280px);
     z-index: 0;
     display: flex;
@@ -9,16 +10,18 @@
 }
 .section_wrapper{
     flex-grow: 1;
+    width: calc(100% - 28vw);
+    overflow: hidden;
 }
 .rec_wrapper{
     max-width: 450px;
-    min-width: 380px;
-    width: 34vw;
+    width: 28vw;
     padding: 2rem 4rem 0 0;
 }
 
 @media screen and (max-width: 768px) {
     .questions_wrapper{
+        margin-left: 0;
         width: 100vw;
     }
     .rec_wrapper{

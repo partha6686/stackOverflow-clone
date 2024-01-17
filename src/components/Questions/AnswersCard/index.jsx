@@ -11,9 +11,6 @@ import moment from "moment";
 import parse from 'html-react-parser';
 
 const AnswersCard = ({answer}) => {
-  const body =
-    "<p>-v. Shows URLs of remote repositories when listing your current remote connections. By default, listing remote repositories only shows you their shortnames (e.g. &quot;origin&quot;). Using the &quot;-v&quot; option, you will also see the remote's URLs in listings.</p> <pre><code>git remote -v </code></pre>";
-
   return (
     <div className={styles.card}>
       <div className={styles.card_header}>
@@ -33,8 +30,6 @@ const AnswersCard = ({answer}) => {
         </div>
       </div>
       <div className={styles.card_footer}>
-        {/* <div className={styles.footer_left}>
-        </div> */}
         <div className={styles.footer_right}>
           <PiShareFatLight size={36} />
           <LiaComment size={36} />

@@ -56,8 +56,24 @@
 .card_body {
   padding: 2rem;
   font-size: 14px;
+  line-height: 24px;
   color: #242729;
 }
+.card_body img{
+  max-width: 100%!important;
+}
+.card_body pre{
+  background-color: #eaeaea;
+  margin: 12px auto;
+  padding: 12px;
+  border-radius: 6px;
+  overflow: scroll;
+}
+.card_body code{
+  width: 100%;
+  font-family: 'Source Code Pro', monospace;
+}
+
 .card_footer{
     padding: 0 2rem 2rem;
     display: flex;
