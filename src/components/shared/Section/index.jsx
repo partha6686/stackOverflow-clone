@@ -21,7 +21,6 @@ const Section = () => {
 
   const getQuestions = async () => {
     try {
-      console.log("HITTTT");
       setLoading(true);
       const data = await getData(
         `questions?page=${page}&pagesize=${pagesize}&order=desc&sort=${
@@ -37,7 +36,7 @@ const Section = () => {
         });
       }
     } catch (error) {
-      setError({ message: data?.message, type: true });
+      setError({ message: "Some error occured", type: true });
     } finally {
       setLoading(false);
     }
@@ -98,7 +97,7 @@ const Section = () => {
         <div className={styles.loader}>
           <img
             src={Loader}
-            alt="stack-overflow-logo"
+            alt="loading..."
             
           />
         </div>

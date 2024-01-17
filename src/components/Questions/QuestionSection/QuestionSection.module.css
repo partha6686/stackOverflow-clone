@@ -26,3 +26,12 @@
 .filter_active_link{
     color: #f48024!important;
 }
+.loader{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader img{
+    width: 2rem;
+}

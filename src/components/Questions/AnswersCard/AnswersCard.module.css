@@ -64,14 +64,7 @@
       padding: 0 2rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-  }
-  .footer_left{
-      color: #f48024;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      justify-content: end;
   }
   .footer_right{
       display: flex;
