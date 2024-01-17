@@ -89,7 +89,7 @@ const QuestionSection = () => {
       setQuestion({});
       setAnswers([]);
     };
-  }, []);
+  }, [slug]);
 
   return (
     <div className={styles.qs_section}>
