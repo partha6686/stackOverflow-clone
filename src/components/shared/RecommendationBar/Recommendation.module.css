@@ -5,15 +5,23 @@
     margin-bottom: 18px;
 }
 .upVotes{
-    padding:12px;
+    padding:12px 20px;
     background-color: #eaeaea;
     font-size: 14px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .upVotesSelected{
-    padding:12px;
+    padding:12px 20px;
     background-color: #F48024;
     color: #fff;
     font-size: 14px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .title{
     flex-grow: 1;
