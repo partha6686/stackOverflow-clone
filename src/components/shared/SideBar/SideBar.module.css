@@ -52,6 +52,7 @@
 }
 @media screen and (max-width: 768px) {
     .sidebar_wrapper{
+        width: 100vw ;
         padding: 2rem 0 2rem 1rem;
     }
     .hide_sidebar{
