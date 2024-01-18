@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import StackLogo from "../../../assets/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import SideBar from "../SideBar";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [showSideBar, setShowSideBar] = useState(true);
   const [searchVal, setSearchVal] = useState("");
+  let location = useLocation();
   const navigate = useNavigate();
 
   const handleSearch = (e)=>{
@@ -16,13 +17,18 @@ const Navbar = () => {
     navigate(`/questions?search=${searchVal}`);
   }
 
+  useEffect(() => {
+    setShowSideBar(true);
+  }, [location])
+  
+
   return (
     <>
       <section className={styles.navbar_wrapper}>
         <div className={styles.navbar}>
-          <div className={styles.logo}>
+          <Link to={"/"} className={styles.logo}>
             <img src={StackLogo} alt="stack-overflow-logo" />
-          </div>
+          </Link>
           <div className={styles.search_wrapper}>
             <AiOutlineSearch className={styles.search_icon} size={20} />
             <form onSubmit={handleSearch}>
