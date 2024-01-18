@@ -1,7 +1,7 @@
 .questions_wrapper{
     min-height: 100vh;
     margin-left: auto;
-    width: calc(100vw - 280px);
+    width: calc(100vw - 290px);
     z-index: 0;
     display: flex;
     flex-direction: row;

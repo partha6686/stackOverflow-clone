@@ -67,7 +67,7 @@
   margin: 12px auto;
   padding: 12px;
   border-radius: 6px;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 .card_body a{
   word-break: break-all;
