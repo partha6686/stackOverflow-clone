@@ -14,7 +14,7 @@ export const getData = async (url) => {
   } catch (error) {
     return {
         statusCode: 500,
-        message: "Some unexpected error occured!"
+        message: error.response.data.error_message ?  error.response.data.error_message :"Some unexpected error occured!"
     };
   }
 };

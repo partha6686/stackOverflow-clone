@@ -6,6 +6,7 @@ import { getData } from "../../../services";
 import Loader from "../../../assets/loader.svg";
 import ReactPaginate from "react-paginate";
 import { numberService } from "../../../services/numberService";
+import { toast } from "react-toastify";
 
 const Section = () => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -39,12 +40,14 @@ const Section = () => {
         setAllQuestions(data?.items);
       } else {
         setError({
-          message: data?.error_message,
+          message: data?.message,
           type: true,
         });
+        toast(data?.message)
       }
     } catch (error) {
       setError({ message: "Some error occured", type: true });
+      toast( "Some error occured")
     } finally {
       setLoading(false);
     }
@@ -62,12 +65,14 @@ const Section = () => {
         setAllQuestions(data?.items);
       } else {
         setError({
-          message: data?.error_message,
+          message: data?.message,
           type: true,
         });
+        toast(data?.message)
       }
     } catch (error) {
       setError({ message: "Some error occured", type: true });
+      toast("Some error occured")
     } finally {
       setLoading(false);
     }
@@ -81,12 +86,14 @@ const Section = () => {
         setPageCount(Math.ceil(data?.items[0]?.total_questions / pageCount));
       } else {
         setError({
-          message: data?.error_message,
+          message: data?.message,
           type: true,
         });
+        toast(data?.message);
       }
     } catch (error) {
       setError({ message: "Some error occured", type: true });
+      toast("Some error occured")
     }
   };
 

@@ -10,6 +10,7 @@ import {
 import styles from "./QuestionSection.module.css";
 import { getData } from "../../../services";
 import Loader from "../../../assets/loader.svg";
+import { toast } from "react-toastify";
 
 const QuestionSection = () => {
   let { slug } = useParams();
@@ -38,12 +39,14 @@ const QuestionSection = () => {
         setAnswers(answersData.items);
       } else {
         setError({
-          message: answersData?.error_message,
+          message: answersData?.message,
           type: true,
         });
+        toast(answersData?.message);
       }
     } catch (error) {
       setError({ message: "Some error occured", type: true });
+      toast("Some error occured");
     } finally {
       setAnsLoading(false);
     }
@@ -64,13 +67,16 @@ const QuestionSection = () => {
         setQuestion(questionData.items[0]);
         setAnswers(answersData.items);
       } else {
+        console.log(questionData);
         setError({
-          message: questionData?.error_message || answersData?.error_message,
+          message: questionData?.message || answersData?.message,
           type: true,
         });
+        toast(questionData?.message || answersData?.message)
       }
     } catch (error) {
       setError({ message: "Some error occured", type: true });
+      toast("Some error occured")
     } finally {
       setLoading(false);
     }
@@ -98,12 +104,12 @@ const QuestionSection = () => {
           <img src={Loader} alt="loading..." />
         </div>
       )}
-      {!loading && (
+      {!loading && question && (
         <>
           <QuestionLgCard question={question} />
           <div className={styles.filter_div}>
             <div className={styles.filter_num}>
-              <p>{question.answer_count} Answers</p>
+              <p>{question?.answer_count} Answers</p>
             </div>
             <div className={styles.filter_tab}>
               <p

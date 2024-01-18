@@ -3,6 +3,7 @@ import styles from "./Recommendation.module.css";
 import RecommendationCard from "./RecommendationCard";
 import { useParams } from "react-router-dom";
 import { getData } from "../../../services";
+import { toast } from "react-toastify";
 
 const RecommendationBar = () => {
   let { slug } = useParams();
@@ -26,6 +27,7 @@ const RecommendationBar = () => {
       setRelatedData(data2?.items);
     } catch (error) {
       setError({ message: "Some error occured", type: true });
+      toast("Some error occured");
     } finally {
       setLoading(false);
     }
