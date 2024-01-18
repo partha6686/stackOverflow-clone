@@ -60,3 +60,23 @@
     font-size: 10px;
     color: #848484;
 }
+
+@media screen and (max-width: 600px) {
+    .card{
+        margin: 1rem;
+    }
+    .card .card_title{
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .card_desc{
+        font-size: 12px;
+    }
+
+    .card_footer{
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
+        text-align: center;
+    }
+}

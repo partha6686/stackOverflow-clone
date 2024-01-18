@@ -15,6 +15,7 @@
   border-bottom: 1px solid #fff;
   display: flex;
   align-items: start;
+  justify-content: space-between;
   gap: 4rem;
 }
 
@@ -29,7 +30,7 @@
   padding: 1rem 2rem;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .profile_name {
   display: flex;
@@ -68,6 +69,12 @@
   border-radius: 6px;
   overflow: scroll;
 }
+.card_body a{
+  word-break: break-all;
+}
+.card_body table{
+  overflow: scroll;
+}
 .card_body code{
   width: 100%;
   font-family: 'Source Code Pro', monospace;
@@ -80,6 +87,9 @@
 .card_body p{
   margin: 12px auto;
 }
+.card_body ul,.card_body ol{
+  margin-left: 2rem;
+}
 
 .card_footer{
     padding: 0 2rem 2rem;
@@ -89,7 +99,7 @@
 }
 .footer_left{
     color: #f48024;
-    font-size: 18px;
+   
     display: flex;
     align-items: center;
     gap: 4px;
@@ -98,4 +108,62 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+.footer_left span{
+  font-size: 16px;
+}
+.footer_left *,.footer_right *{
+  font-size: 32px;
+}
+
+@media screen and (max-width: 600px) {
+  .card_title_div {
+    padding: 12px;
+    gap: 1rem;
+  }
+  .card_title{
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .card_profile{
+    padding: 12px;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+    /* justify-content: space-between; */
+  }
+  .profile_name {
+    font-size: 12px;
+  }
+  .profile_pic {
+    width: 24px;
+  }
+  .profile_desc {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 9px;
+    font-weight: 300;
+  }
+  .card_body {
+    padding: 8px 12px 12px;
+    font-size: 12px;
+  }
+  .card_body ul,.card_body ol{
+    margin-left: 12px;
+  }
+  .card_footer{
+    padding: 0 12px 12px;
+  }
+  .footer_left span{
+    font-size: 16px;
+  }
+  .footer_left *,.footer_right *{
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .card_title{
+    font-size: 14px;
+  }
 }

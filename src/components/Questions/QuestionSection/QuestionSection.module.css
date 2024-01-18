@@ -35,3 +35,16 @@
 .loader img{
     width: 2rem;
 }
+
+@media screen and (max-width: 600px) {
+    .qs_section{
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .filter_num{
+        font-size: 14px;
+    }
+    .filter_tab p{
+        font-size: 12px;
+    }
+}

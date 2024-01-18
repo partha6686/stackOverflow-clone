@@ -14,3 +14,10 @@
     border-radius: 6px;
     color: #848484;
 }
+
+@media screen and (max-width: 600px) {
+    .bubble_tag{
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}

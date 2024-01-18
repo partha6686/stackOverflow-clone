@@ -6,13 +6,13 @@ const UpVoteBtn = ({num}) => {
   return (
     <div className={styles.btn}>
         <div className={styles.btn_left}>
-            <AiOutlineMinus size={22} />
+            <AiOutlineMinus />
         </div>
         <div className={styles.btn_text}>
             {num}
         </div>
         <div className={styles.btn_right}>
-            <AiOutlinePlus size={22}/>
+            <AiOutlinePlus />
         </div>
     </div>
   )

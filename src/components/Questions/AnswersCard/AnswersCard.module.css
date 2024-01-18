@@ -1,97 +1,164 @@
 .card {
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: #fff;
-    -webkit-box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
-    -moz-box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
-    box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
-    margin-bottom: 2rem;
-  }
-  .card_header {
-    background-color: #f7f8fc;
-    color: #fff;
-  }
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
+  -moz-box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
+  box-shadow: 0px 0px 16px 6px rgba(143, 143, 143, 0.2);
+  margin-bottom: 2rem;
+}
+.card_header {
+  background-color: #f7f8fc;
+  color: #fff;
+}
+.card_title_div {
+  padding: 2rem;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.card_title {
+  font-weight: 400;
+  color: #242729;
+  font-size: 14px;
+}
+.card_title span {
+  color: #f48024;
+}
+
+.card_profile {
+  display: flex;
+  padding: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.profile_name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-wrap: nowrap;
+  font-size: 14px;
+}
+.profile_pic {
+  border-radius: 100%;
+  width: 28px;
+}
+
+.profile_desc {
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  color: #fff;
+}
+.VR {
+  border-right: 1px solid #fff;
+}
+.card_body {
+  padding: 2rem;
+  font-size: 14px;
+  color: #242729;
+}
+.card_body img {
+  max-width: 100% !important;
+}
+.card_body a{
+  word-break: break-all;
+}
+.card_body pre {
+  background-color: #eaeaea;
+  margin: 12px auto;
+  padding: 12px;
+  border-radius: 6px;
+  overflow: scroll;
+}
+.card_body table{
+  overflow: scroll;
+}
+.card_body code {
+  width: 100%;
+  font-family: "Source Code Pro", monospace;
+  background-color: #eaeaea;
+  border-radius: 4px;
+}
+.card_body hr {
+  margin: 12px auto;
+}
+.card_body p {
+  margin: 12px auto;
+}
+.card_body ul,
+.card_body ol {
+  margin-left: 2rem;
+}
+
+.card_footer {
+  padding: 0 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.footer_right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.footer_right *{
+  font-size: 32px;
+}
+
+@media screen and (max-width: 600px) {
   .card_title_div {
-    padding: 2rem;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 4rem;
+    padding: 12px;
+    gap: 1rem;
   }
-  
   .card_title {
     font-weight: 400;
-    color: #242729;
-    font-size: 14px;
+    font-size: 12px;
   }
-  .card_title span{
-    color: #f48024;
-  }
-  
   .card_profile {
-    display: flex;
-    padding: 1rem 2rem;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    padding: 12px;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+    /* justify-content: space-between; */
   }
   .profile_name {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-wrap: nowrap;
-    font-size: 14px;
+    font-size: 12px;
   }
   .profile_pic {
-    border-radius: 100%;
-    width: 28px;
+    width: 24px;
   }
-  
   .profile_desc {
-    display: flex;
-    gap: 12px;
-    font-size: 10px;
-    color: #fff;
-  }
-  .VR {
-    border-right: 1px solid #fff;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 9px;
+    font-weight: 300;
   }
   .card_body {
-    padding: 2rem;
-    font-size: 14px;
-    color: #242729;
+    padding: 8px 12px 12px;
+    font-size: 12px;
   }
-  .card_body img{
-    max-width: 100%!important;
+  .card_body ul,
+  .card_body ol {
+    margin-left: 12px;
   }
-  .card_body pre{
-    background-color: #eaeaea;
-    margin: 12px auto;
-    padding: 12px;
-    border-radius: 6px;
-    overflow: scroll;
+  .card_footer {
+    padding: 0 12px 12px;
   }
-  .card_body code{
-    width: 100%;
-    font-family: 'Source Code Pro', monospace;
-    background-color: #eaeaea;
-    border-radius: 4px;
+  .footer_left span {
+    font-size: 16px;
   }
-  .card_body hr{
-    margin: 12px auto;
-  }  
-  .card_body p{
-    margin: 12px auto;
+  .footer_left *,
+  .footer_right * {
+    font-size: 26px;
   }
+}
 
-  .card_footer{
-      padding: 0 2rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: end;
+@media screen and (max-width: 350px) {
+  .card_title {
+    font-size: 14px;
   }
-  .footer_right{
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-  }
+}

@@ -26,13 +26,13 @@ const AnswersCard = ({answer}) => {
       </div>
       <div className={styles.card_body}>
         <div>
-        {parse(answer?.body)}
+        {parse(answer?.body ? answer?.body: '' )}
         </div>
       </div>
       <div className={styles.card_footer}>
         <div className={styles.footer_right}>
-          <PiShareFatLight size={36} />
-          <LiaComment size={36} />
+          <PiShareFatLight />
+          <LiaComment />
         </div>
       </div>
     </div>

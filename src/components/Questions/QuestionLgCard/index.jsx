@@ -49,16 +49,16 @@ const QuestionLgCard = ({ question }) => {
         </div>
       </div>
       <div className={styles.card_body}>
-        <div>{parse(question?.body)}</div>
+        <div>{parse(question?.body ? question?.body: '')}</div>
       </div>
       <div className={styles.card_footer}>
         <div className={styles.footer_left}>
-          <IoIosBookmark size={36} color="#f48024" />
+          <IoIosBookmark color="#f48024" />
           <span>{question?.answer_count}</span>
         </div>
         <div className={styles.footer_right}>
-          <PiShareFatLight size={36} />
-          <LiaComment size={36} />
+          <PiShareFatLight />
+          <LiaComment />
         </div>
       </div>
     </div>

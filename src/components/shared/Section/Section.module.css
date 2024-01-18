@@ -8,7 +8,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    
 }
 .header h2{
     font-weight: 400;
@@ -52,4 +51,25 @@
 }
 .loader img{
     width: 2rem;
+}
+
+
+@media screen and (max-width: 600px) {
+    .header_wrapper{
+        margin: 0 1rem;
+        padding: 2rem 0 0.5rem;
+    }
+    .header h2{
+        font-size: 18px;
+    }
+    .header button{
+        font-size: 14px;
+        padding: 6px 10px; 
+    }
+    .filter_num{
+        font-size: 14px;
+    }
+    .filter_tab p{
+        font-size: 12px;
+    }
 }
